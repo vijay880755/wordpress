@@ -33,6 +33,11 @@ variable "vpc_id" {
   default = "vpc-fa10e491"
 }
 
+variable "tag" {
+ type = string
+ default = "latest"
+}
+
 variable "load_balancer" {
   type = map
   default = {
