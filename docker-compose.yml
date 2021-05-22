@@ -26,9 +26,5 @@ services:
        WORDPRESS_DB_PASSWORD: wordpress
        WORDPRESS_DB_NAME: wordpress
 volumes:
-<<<<<<< HEAD
-     db_data: {}       
-=======
      db_data: {}
->>>>>>> a09a2d4f1ff7df6a8efc3f3e8bdc67d94668b3cd
      wordpress: {}
