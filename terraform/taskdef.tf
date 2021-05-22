@@ -21,7 +21,7 @@ resource "aws_ecs_task_definition" "wordpress" {
   container_definitions    = jsonencode([
     {
       name = "wordpress"
-      image = "${var.ecr_repository_url}"
+      image = "${var.ecr_repository_url}:${var.tag}"
       memory = 1024
       cpu = 512
       essential = true
