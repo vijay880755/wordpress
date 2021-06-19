@@ -20,7 +20,7 @@ variable "health_check" {
     interval = 60
     port                = "80"
     healthy_threshold   = 10
-    path                = "/"
+    path                = "/wp-admin/setup-config.php"
     unhealthy_threshold = 10
     timeout             = 10
     protocol            = "HTTP"
