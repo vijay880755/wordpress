@@ -93,7 +93,7 @@ resource "aws_alb_listener_rule" "alb_rules" {
  }
  condition {
     path_pattern {
-      values = ["/"]
+      values = ["/wp-admin/setup-config.php"]
     }
   } 
  }
