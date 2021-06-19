@@ -15,15 +15,15 @@ resource "aws_ecs_task_definition" "wordpress" {
   family                   = "wordpress"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  memory                   = "1024"
-  cpu                      = "512"
+  memory                   = "4096"
+  cpu                      = "2048"
   execution_role_arn       = "arn:aws:iam::765771042989:role/ecsTaskExecutionRole"
   container_definitions    = jsonencode([
     {
       name = "wordpress"
       image = "${var.ecr_repository_url}:${var.tag}"
-      memory = 1024
-      cpu = 512
+      memory = 4096
+      cpu = 2048
       essential = true
       portMappings = [
         {
