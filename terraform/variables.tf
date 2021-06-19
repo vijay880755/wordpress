@@ -41,7 +41,7 @@ variable "tag" {
 variable "load_balancer" {
   type = map
   default = {
-    name = "cleartap-wordpress"
+    name = "clevertap-wordpress"
     port = "80"
   }
 }
