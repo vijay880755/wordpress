@@ -12,6 +12,10 @@ pipeline {
                 sh 'docker -v'
                 sh 'chmod 755 BuildScript.sh'
                 sh './BuildScript.sh ${BUILD_NUMBER}'
+                
+                docker.withRegistry("765771042989.dkr.ecr.ap-south-1.amazonaws.com", "ecr:ap-south-1:AKIA3ES4C2CWW24I7AX3") {
+                     docker.image("765771042989.dkr.ecr.ap-south-1.amazonaws.com/clever-tap:wordpress_${BUILD_NUMBER}").push()
+                }
             }
             
         }
