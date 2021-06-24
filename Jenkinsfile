@@ -11,7 +11,7 @@ pipeline {
             steps{
                 sh 'docker -v'
                 script{
-                docker.withRegistry("765771042989.dkr.ecr.ap-south-1.amazonaws.com", "ecr:ap-south-1:AKIA3ES4C2CWW24I7AX3") {
+                docker.withRegistry("765771042989.dkr.ecr.ap-south-1.amazonaws.com", "ecr:ap-south-1:Wordpress") {
                     def customImage = docker.build("765771042989.dkr.ecr.ap-south-1.amazonaws.com/clever-tap:wordpress_${BUILD_NUMBER}")            
                      customImage.push()
                 }
