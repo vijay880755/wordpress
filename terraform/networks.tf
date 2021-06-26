@@ -6,7 +6,7 @@ resource "aws_internet_gateway" "clevertap-igateway" {
 }
 
 resource "aws_route_table" "clevertap-routetable" {
-    vpc_id = "${aws_vpc.main-vpc.id}"
+    vpc_id = "${aws_vpc.clevertap-vpc.id}"
     
     route {
         cidr_block = "0.0.0.0/0" 
