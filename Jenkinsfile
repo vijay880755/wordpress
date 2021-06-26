@@ -12,7 +12,7 @@ pipeline {
         stage('Building Docker Stack'){
             steps{
                 sh 'df -h'
-                sh 'docker image prune -y'
+                sh 'docker rmi $ (docker ps -a -q)'
                 sh 'systemctl restart docker'
                 sh 'docker -v'
                 script{
