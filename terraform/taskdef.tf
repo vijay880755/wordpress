@@ -7,9 +7,9 @@ data "aws_lb_listener" "selected" {
   port              = 80
 }
 
-data "aws_subnet_ids" "subnet_ids" {
-  vpc_id = var.vpc_id
-}
+# data "aws_subnet_ids" "subnet_ids" {
+#   vpc_id = var.vpc_id
+# }
 
 resource "aws_ecs_task_definition" "wordpress" {
   family                   = "wordpress"
@@ -35,7 +35,7 @@ resource "aws_ecs_task_definition" "wordpress" {
   ])
   tags = {
     env = "Development"
-    purpose = "From Terraform Task Def"
+    purpose = "Clevertap Wordpress Container"
   }
 }
 
@@ -54,7 +54,7 @@ resource "aws_ecs_service" "wordpress-service" {
   }
 
   network_configuration {
-    subnets          = data.aws_subnet_ids.subnet_ids.ids
+    subnets          = [aws_subnet.clevertap-subnet-1,aws_subnet.clevertap-subnet-2]
     security_groups  = [ aws_security_group.default.id ]
     assign_public_ip = true
   }
@@ -68,7 +68,7 @@ resource "aws_lb_target_group" "wordpresstg" {
   name                               = "wordpresstg"
   port                               = var.health_check.port
   protocol                           = var.health_check.protocol
-  vpc_id                             = var.vpc_id
+  vpc_id                             = aws_vpc.clevertap-vpc
   target_type                        = "ip"
   proxy_protocol_v2                  = "false"
   health_check {
