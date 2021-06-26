@@ -1,5 +1,5 @@
-resource "aws_ecr_repository" "clevertap" {
-  name                 = "clevertap"
+resource "aws_ecr_repository" "clever-tap" {
+  name                 = "clever-tap"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
