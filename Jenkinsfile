@@ -11,12 +11,9 @@ pipeline {
         }
         stage('Building Docker Stack'){
             steps{
-                sh 'df -h'
                 sh 'docker ps -q -f status=exited | xargs --no-run-if-empty docker rm'
                 sh 'docker images -q -f dangling=true | xargs --no-run-if-empty docker rmi'
                 sh 'docker volume ls -qf dangling=true | xargs -r docker volume rm'
-                sh 'df -h'
-                sh 'systemctl restart docker'
                 sh 'docker -v'
                 script{
                 docker.withRegistry("https://"+registry, "ecr:ap-south-1:Wordpress") {
