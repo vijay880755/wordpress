@@ -2,7 +2,7 @@ resource "aws_vpc" "clevertap-vpc" {
     cidr_block = "10.0.0.0/16"
     enable_dns_support = "true" 
     enable_dns_hostnames = "true" 
-    tags {
+    tags = {
         Name = "clevertap-vpc"
     }
 }
@@ -12,7 +12,7 @@ resource "aws_subnet" "clevertap-subnet-1" {
     cidr_block = "10.0.1.0/24"
     map_public_ip_on_launch = "true" 
     availability_zone = "ap-south-1a"
-    tags {
+    tags = {
         Name = "clevertap-subnet-mumbai-1"
     }
 }
@@ -21,7 +21,7 @@ resource "aws_subnet" "clevertap-subnet-2" {
     cidr_block = "10.0.1.0/24"
     map_public_ip_on_launch = "true" 
     availability_zone = "ap-south-2a"
-    tags {
+    tags = {
         Name = "clevertap-subnet-mumbai-2"
     }
 }
