@@ -15,7 +15,7 @@ resource "aws_lb_target_group" "wordpresstg" {
   name                               = "wordpresstg"
   port                               = var.health_check.port
   protocol                           = var.health_check.protocol
-  vpc_id                             = aws_vpc.clevertap-vpc
+  vpc_id                             = aws_vpc.clevertap-vpc.id
   target_type                        = "ip"
   proxy_protocol_v2                  = "false"
   health_check {
