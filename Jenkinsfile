@@ -11,9 +11,6 @@ pipeline {
         }
         stage('Building Docker Stack'){
             steps{
-//                 sh 'docker ps -q -f status=exited | xargs --no-run-if-empty docker rm'
-//                 sh 'docker images -q -f dangling=true | xargs --no-run-if-empty docker rmi'
-//                 sh 'docker volume ls -qf dangling=true | xargs -r docker volume rm'
                 sh 'docker system prune -af'
                 sh 'docker -v'
                 script{
@@ -21,8 +18,6 @@ pipeline {
                     def customImage = docker.build(registry+"/clever-tap:wordpress_${BUILD_NUMBER}")            
                      customImage.push()
                 }
-                   //  docker.image("765771042989.dkr.ecr.ap-south-1.amazonaws.com/clever-tap:wordpress_${BUILD_NUMBER}").push()
-                   // docker.image("765771042989.dkr.ecr.ap-south-1.amazonaws.com/clever-tap:mysql_${BUILD_NUMBER}").push()
                 }
             }
             
