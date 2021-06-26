@@ -1,4 +1,4 @@
-resource "aws_lb" "cleartap-wordpress" {
+resource "aws_lb" "clevertap-wordpress" {
   name               = "cleartap-wordpress"
   internal           = false
   load_balancer_type = "application"
@@ -32,7 +32,7 @@ resource "aws_lb_target_group" "wordpresstg" {
 }
 
 resource "aws_alb_listener_rule" "alb_rules" {
-  listener_arn = aws_lb.cleartap-wordpress.arn
+  listener_arn = aws_lb.clevertap-wordpress.arn
 
   action {
     type             = "forward"
