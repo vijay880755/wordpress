@@ -11,6 +11,7 @@ pipeline {
         }
         stage('Building Docker Stack'){
             steps{
+                sh 'df -h'
                 sh 'docker -v'
                 script{
                 docker.withRegistry("https://"+registry, "ecr:ap-south-1:Wordpress") {
