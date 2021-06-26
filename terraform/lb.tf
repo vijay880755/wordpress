@@ -3,7 +3,7 @@ resource "aws_lb" "clevertap-wordpress" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.default.id]
-  subnets            = [aws_subnet.clevertap-subnet-1]
+  subnets            = [aws_subnet.clevertap-subnet-1.id]
 
   enable_deletion_protection = true
   tags = {
