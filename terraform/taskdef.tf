@@ -59,4 +59,6 @@ resource "aws_ecs_service" "wordpress-service" {
     container_name   = "wordpress"
     container_port   = 80
   }
+  
+  depends_on = ["aws_lb.clevertap-wordpress"]
 }
