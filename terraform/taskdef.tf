@@ -50,7 +50,7 @@ resource "aws_ecs_service" "wordpress-service" {
   }
 
   network_configuration {
-    subnets          = [aws_subnet.clevertap-subnet-1]
+    subnets          = [aws_subnet.clevertap-subnet-1.id]
     security_groups  = [ aws_security_group.default.id ]
     assign_public_ip = true
   }
