@@ -12,8 +12,8 @@ pipeline {
         stage('Building Docker Stack'){
             steps{
                 sh 'df -h'
-                sh 'docker image prune'
-                sh 'systemctl stop docker && systemctl start docker'
+                sh 'docker image prune -y'
+                sh 'systemctl restart docker'
                 sh 'docker -v'
                 script{
                 docker.withRegistry("https://"+registry, "ecr:ap-south-1:Wordpress") {
