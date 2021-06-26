@@ -22,3 +22,8 @@ resource "aws_route_table_association" "clevertap-rta-1"{
     subnet_id = "${aws_subnet.clevertap-subnet-1.id}"
     route_table_id = "${aws_route_table.clevertap-routetable.id}"
 }
+
+resource "aws_route_table_association" "clevertap-rta-2"{
+    subnet_id = "${aws_subnet.clevertap-subnet-2.id}"
+    route_table_id = "${aws_route_table.clevertap-routetable.id}"
+}
