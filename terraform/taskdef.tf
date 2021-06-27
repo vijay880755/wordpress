@@ -1,12 +1,3 @@
-data "aws_lb_listener" "selected" {
-  load_balancer_arn = aws_lb.clevertap-wordpress.arn
-  port              = 80
-}
-
-# data "aws_subnet_ids" "subnet_ids" {
-#   vpc_id = var.vpc_id
-# }
-
 resource "aws_ecs_task_definition" "wordpress" {
   family                   = "wordpress"
   network_mode             = "awsvpc"
