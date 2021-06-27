@@ -52,3 +52,7 @@ resource "aws_alb_listener_rule" "alb_rules" {
     }
   } 
  }
+
+output "lb_address" {
+  value = aws_lb.clevertap-wordpress.public_dns
+}
