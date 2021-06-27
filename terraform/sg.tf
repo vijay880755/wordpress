@@ -4,7 +4,7 @@ variable "name"{
 resource "aws_security_group" "default" {
   description = "security group for ${var.name} service"
   name        = var.name
-  vpc_id = var.vpc_id
+  vpc_id = aws_vpc.clevertap-vpc.id
 }
 
 resource "aws_security_group_rule" "service_in_lb" {
