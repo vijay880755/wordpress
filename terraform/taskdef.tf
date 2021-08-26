@@ -2,8 +2,8 @@ resource "aws_ecs_task_definition" "wordpress" {
   family                   = "wordpress"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  memory                   = "4096"
-  cpu                      = "2048"
+  memory                   = "1024"
+  cpu                      = "512"
   execution_role_arn       = "arn:aws:iam::765771042989:role/ecsTaskExecutionRole"
   container_definitions    = jsonencode([
     {
