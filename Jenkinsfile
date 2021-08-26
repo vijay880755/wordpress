@@ -24,6 +24,7 @@ pipeline {
         }
         stage('Deploying to Fargate'){
             steps{
+                sh 'whoami'
                 sh 'cd terraform && /usr/local/bin/terraform init && /usr/local/bin/terraform validate && /usr/local/bin/terraform plan -input=false && /usr/local/bin/terraform apply -var="tag=wordpress_${BUILD_NUMBER}" -auto-approve'
             }
         }
