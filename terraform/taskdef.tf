@@ -9,8 +9,8 @@ resource "aws_ecs_task_definition" "wordpress" {
     {
       name = "wordpress"
       image = "${var.ecr_repository_url}:${var.tag}"
-      memory = 4096
-      cpu = 2048
+      memory = 1024
+      cpu = 512
       essential = true
       portMappings = [
         {
